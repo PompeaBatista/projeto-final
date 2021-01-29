@@ -1,0 +1,49 @@
+<h2>Detalhar Clientes</h2>
+
+<hr/>
+<div *ngIf="clientes">
+  <div>
+    <label><b>Nome : </b></label> {{clientes.nome}}
+  </div>
+  <div>
+    <label><b>Nome Social : </b></label> {{clientes.nomeSocial}}
+  </div>
+  <div>
+    <label><b>Apelido : </b></label> {{clientes.apelido }}
+  </div>
+<div>
+    <label><b>Data de nascimento : </b></label> {{clientes.dataNascimento }}
+  </div>
+<div>
+    <label><b>Sexo : </b></label> {{clientes.sexo }}
+  </div>
+<div>
+    <label><b>Telefone : </b></label> {{clientes.telefone }}
+  </div>
+<div>
+  <div>
+    <label><b>CPF : </b></label> {{clientes.cpf }}
+  </div>
+<div>
+    <label><b>Email : </b></label> {{clientes.email }}
+  </div>
+</div>
+<br>
+
+<div id="">
+  <h4><label for="search-box">Pesquisar Clientes</label></h4>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+      <li *ngFor="let cliente of clientes | async" >>
+      <a routerLink="/detail/{{cliente.id}}">
+        {{cliente.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<button (click)="ClientesLista" class="btn btn-info" style="margin-left: 10px">Detalhar dados dos clientes</button>
+<button routerLink="/clientes"class="btn btn-info" style="margin-left: 10px">Voltar</button>
+
